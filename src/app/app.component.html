@@ -1,3 +1,9 @@
-<div *ngFor="let item of items">
-<p>{{item.name}}</p>
-</div>
+<ul *ngFor="let item of items">
+<li>{{item.name}}</li>
+</ul>
+<form  method="post" enctype="multipart/form-data">
+    <!-- <button (click)="upload()">add new file</button> -->
+    <input  (change)="fileChange($event)"  type="file"  class="custom-file-input"  id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01">
+    <span  class="input-group-text upload"  (click)="upload()"  id="btnUpload">Upload</span>
+
+</form>
