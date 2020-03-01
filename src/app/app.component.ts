@@ -25,10 +25,12 @@ export class AppComponent implements OnInit {
 		});
 	}
 
-	fileChange(element:any) {
-        this.uploadedFiles = element.target.files;
+	fileChange(element: any) {
+		this.uploadedFiles = element.target.files;
 	}
-	
+	 isFileImage(file: any) {
+		return file && file.type.split('/')[0] === 'image';
+	}
 
 	upload() {
 		const formData = new FormData();
@@ -44,4 +46,21 @@ export class AppComponent implements OnInit {
 
 		});
 	}
+
+	downloadFile(id: string) {
+		this.itemService.getByID(id).subscribe((response) => {
+			console.log(response);
+		//	let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
+		this.writeContents(response, 'test.txt', 'text/txt'); // file extension
+
+		});
+	}
+
+	writeContents(content, fileName, contentType) {
+		const a = document.createElement('a');
+		const file = new Blob([content], {type: contentType});
+		a.href = URL.createObjectURL(file);
+		a.download = fileName;
+		a.click();
+	  }
 }
