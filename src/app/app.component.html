@@ -9,7 +9,7 @@
     <div *ngFor="let item of items">
       <div>
         <!-- [href]="item.name" [download]="item.name" -->
-        <a  (click)="downloadFile(item.id)">
+        <a  (click)="downloadFile(item.id,item.name)">
           <i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i> 
           <i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
           {{item.name}}</a>

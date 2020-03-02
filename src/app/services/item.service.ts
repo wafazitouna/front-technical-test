@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ResponseContentType, RequestOptions } from '@angular/http';
+//import { ResponseContentType, RequestOptions } from '@angular/http';
 
 import { Item } from '../models/item';
 
@@ -21,6 +21,6 @@ export class ItemService {
 
 	getByID(itemID:string){
 		
-		//return this.http.get<Item[]>(this.path + 'items/'+itemID,{responseType: 'blob'});
+		return this.http.get(this.path + 'items/'+itemID,{ responseType: 'blob'});
 	}
 }

@@ -47,20 +47,25 @@ export class AppComponent implements OnInit {
 		});
 	}
 
-	downloadFile(id: string) {
-		this.itemService.getByID(id).subscribe((response) => {
+	downloadFile(id: string,name:string) {
+		console.log(id);
+		
+		this.itemService.getByID(id).subscribe((response:any) => {
 			console.log(response);
-		//	let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
-		this.writeContents(response, 'test.txt', 'text/txt'); // file extension
+			window.open(window.URL.createObjectURL(response));
+		//this.writeContents(name,response.type); // file extension
+		const blob = new Blob([response], { type: response.type});
+  const url= window.URL.createObjectURL(blob);
+  window.open(url);
 
 		});
 	}
 
-	writeContents(content, fileName, contentType) {
-		const a = document.createElement('a');
-		const file = new Blob([content], {type: contentType});
-		a.href = URL.createObjectURL(file);
-		a.download = fileName;
-		a.click();
-	  }
+	// writeContents( fileName:string, contentType:string) {
+	// 	const a = document.createElement('a');
+	// 	const file = new Blob([content], {type: contentType});
+	// 	a.href = URL.createObjectURL(file);
+	// 	a.download = fileName;
+	// 	a.click();
+	//   }
 }
