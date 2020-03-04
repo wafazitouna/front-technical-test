@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Item } from './models/item';
-import { ItemService } from './services/item.service';
+import { Component } from '@angular/core';
 
 @Component({
 	selector: 'oo-app',
