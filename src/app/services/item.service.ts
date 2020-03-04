@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-//import { ResponseContentType, RequestOptions } from '@angular/http';
+// import { ResponseContentType, RequestOptions } from '@angular/http';
 
 import { Item } from '../models/item';
 
@@ -9,6 +9,8 @@ import { Item } from '../models/item';
 })
 export class ItemService {
 	path = 'http://localhost:8080/api/';
+	currentFolder: Item;
+
 	constructor(private http: HttpClient) { }
 
 	getAll() {
@@ -19,8 +21,15 @@ export class ItemService {
 		return this.http.post<any>(this.path + 'items', data);
 	}
 
-	getByID(itemID:string){
-		
-		return this.http.get(this.path + 'items/'+itemID,{ responseType: 'blob'});
+	getByID(itemID: string) {
+
+		return this.http.get(this.path + 'items/' + itemID, { responseType: 'blob' });
+	}
+
+	getCurrentFolder() {
+		return this.currentFolder;
+	}
+	setCurrentFolder(folder: Item) {
+		this.currentFolder = folder;
 	}
 }

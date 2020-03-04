@@ -1,1 +1,24 @@
-<p>folder-details works!</p>
+<div class="alert alert-primary" role="alert" *ngIf="listItems.length===0">
+    This folder is emplty
+  </div>
+<div *ngIf="listItems.length>0">
+<ul>
+    <li *ngFor="let item of listItems">
+    
+            <!-- [href]="item.name" [download]="item.name" -->
+            <a  *ngIf="!item.folder">
+                <i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
+                {{item.name}}</a>
+    
+            <a routerLink="/folder/{{item.id}}" *ngIf="item.folder" >
+                <i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i>
+                {{item.name}}</a>
+    
+            <!-- <div *ngIf="isFileImage(item)">
+              <img [src]="item">
+            </div> -->
+    
+        
+    </li>
+    </ul>
+</div>

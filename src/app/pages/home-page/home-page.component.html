@@ -8,7 +8,7 @@
 			<i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
 			{{item.name}}</a>
 
-		<a routerLink="/folder/{{item.id}}" *ngIf="item.folder">
+		<a routerLink="/folder/{{item.id}}" *ngIf="item.folder" (click)=setCurrentFolder(item)>
 			<i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i>
 			{{item.name}}</a>
 
@@ -19,13 +19,7 @@
 	
 </li>
 </ul>
-		<form method="post" enctype="multipart/form-data">
-			<!-- <button (click)="upload()">add new file</button> -->
-			<input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01"
-				aria-describedby="inputGroupFileAddon01">
-			<span (click)="upload()" id="btnUpload">Upload</span>
-
-		</form>
+	
 
 
 
