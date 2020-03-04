@@ -1,35 +1,7 @@
-<div>
-  <mat-toolbar>
-  <mat-toolbar-row>
-  <span>Oodrive - Front-end technical test</span>
-</mat-toolbar-row>
-    
-  </mat-toolbar>
-  <mat-card>
-    <div *ngFor="let item of items">
-      <div>
-        <!-- [href]="item.name" [download]="item.name" -->
-        <a  (click)="downloadFile(item.id,item.name)">
-          <i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i> 
-          <i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
-          {{item.name}}</a>
-       
-        <!-- <div *ngIf="isFileImage(item)">
-          <img [src]="item">
-        </div> -->
-        
-      </div>
-    </div>
-      <form  method="post" enctype="multipart/form-data">
-          <!-- <button (click)="upload()">add new file</button> -->
-          <input  (change)="fileChange($event)"  type="file"  class="custom-file-input"  id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01">
-          <span    (click)="upload()"  id="btnUpload">Upload</span>
-      
-      </form>
-  </mat-card>
-
-  
-
+	<div class="top-bar">
+<span>Oodrive - Front-end technical test</span>
 </div>
-
+<div class="container">
+<router-outlet></router-outlet>
+</div>
 
