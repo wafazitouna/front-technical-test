@@ -1,15 +1,15 @@
 	<div class="top-bar">
-<h1>Oodrive - Front-end technical test</h1>
+<h1>File manager</h1>
 <form method="post" enctype="multipart/form-data">
 	<!-- <button (click)="upload()">add new file</button> -->
-	<input (change)="fileChange($event)" type="file" class="custom-file-input" id="inputGroupFile01"
-		aria-describedby="inputGroupFileAddon01">
-	<button (click)="upload()" type="button" class="btn btn-primary">+new file</button>
-	<button (click)="upload()" type="button" class="btn btn-info">+new folder</button>
+
+	<button  type="button" class="btn btn-primary"> <input (change)="fileChange($event)" type="file"
+			class="custom-file-input">+new file</button>
+	<button (click)="openModal()" type="button" class="btn btn-info">+new folder</button>
 
 </form>
 </div>
 <div class="container">
-<router-outlet></router-outlet>
+<router-outlet *ngIf="refresh"></router-outlet>
 </div>
 

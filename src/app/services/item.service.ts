@@ -21,15 +21,20 @@ export class ItemService {
 		return this.http.post<any>(this.path + 'items', data);
 	}
 
-	getByID(itemID: string) {
+	download(itemID: string) {
 
 		return this.http.get(this.path + 'items/' + itemID, { responseType: 'blob' });
 	}
-
+	getChildren(parentId:string){
+		
+		return this.http.get(this.path + 'items/?parentId=' + parentId);
+	}
 	getCurrentFolder() {
 		return this.currentFolder;
 	}
 	setCurrentFolder(folder: Item) {
 		this.currentFolder = folder;
 	}
+
+	
 }

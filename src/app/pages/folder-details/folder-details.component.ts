@@ -15,22 +15,23 @@ export class FolderDetailsComponent implements OnInit {
 	constructor(private itemService: ItemService) { }
 
 	ngOnInit() {
-    this.currentFolder = this.itemService.getCurrentFolder();
-    this.getItems();
+		this.currentFolder = this.itemService.getCurrentFolder();
+		this.getItems();
 	}
 
-/**
- * get items for current folder
- */
+	/**
+	 * get items for current folder
+	 */
 
-	async getItems() {
-	let allItems: Item[] = [];
-	await this.itemService.getAll().subscribe((data) => {
-	allItems = data;
-});
-  this.listItems = allItems.filter((item: Item) => item.parentId === this.currentFolder.id);
-  console.log(	this.listItems);
-  
-}
+	getItems() {
+
+		this.itemService.getChildren(this.currentFolder.id).subscribe((data: any) => {
+			console.log(data);
+			
+			this.listItems = data.items;
+		});
+
+
+	}
 
 }

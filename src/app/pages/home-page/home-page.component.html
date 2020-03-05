@@ -1,27 +1,17 @@
-<div>
+<div class="container">
 
-<ul>
-<li *ngFor="let item of items">
+	<div class="row">
+		<div class="col-2 mb-4" *ngFor="let item of items">
+			<a (click)="downloadFile(item.id)" *ngIf="!item.folder">
+				<i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
+				{{item.name}}</a>
 
-		<!-- [href]="item.name" [download]="item.name" -->
-		<a (click)="downloadFile(item.id)" *ngIf="!item.folder">
-			<i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
-			{{item.name}}</a>
+			<a routerLink="/folder/{{item.id}}" *ngIf="item.folder"
+				(click)=setCurrentFolder(item)>
+				<i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i>
+				{{item.name}}</a>
+		</div>
 
-		<a routerLink="/folder/{{item.id}}" *ngIf="item.folder" (click)=setCurrentFolder(item)>
-			<i class="fa fa-folder" aria-hidden="true" *ngIf="item.folder"></i>
-			{{item.name}}</a>
-
-		<!-- <div *ngIf="isFileImage(item)">
-          <img [src]="item">
-        </div> -->
-
-	
-</li>
-</ul>
-	
-
-
-
+	</div>
 
 </div>

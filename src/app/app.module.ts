@@ -8,7 +8,9 @@ import { FolderDetailsComponent } from './pages/folder-details/folder-details.co
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-
+import { ModalFolderNameComponent } from './components/modal-folder-name/modal-folder-name.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 const appRoutes: Routes = [
 	{
 		path: '',
@@ -31,15 +33,19 @@ const appRoutes: Routes = [
 		MatCardModule,
 		RouterModule.forRoot(
 			appRoutes
-		)
+		),
+		NgbModule,
+		FormsModule
 	],
 	declarations: [
 		AppComponent,
 		FolderDetailsComponent,
 		PageNotFoundComponent,
 		HomePageComponent,
-		HomePageComponent
+		HomePageComponent,
+		ModalFolderNameComponent
 	],
+	entryComponents: [ModalFolderNameComponent],
 	bootstrap: [AppComponent],
 	providers: [ItemService],
 })

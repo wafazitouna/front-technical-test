@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     // Add 'implements OnInit' to the class.
 	this.itemService.getAll().subscribe((res: any) => {
-	this.items = res.items;
+		this.items = res.items.filter((item :Item)=> !("parentId" in item));
 	console.log(this.items);
 
 });
@@ -28,7 +28,7 @@ export class HomePageComponent implements OnInit {
   downloadFile(id: string) {
 	console.log(id);
 
-	this.itemService.getByID(id).subscribe((response: any) => {
+	this.itemService.download(id).subscribe((response: any) => {
 	console.log(response);
 	window.open(window.URL.createObjectURL(response));
       // this.writeContents(name,response.type); // file extension

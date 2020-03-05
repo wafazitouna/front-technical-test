@@ -1,9 +1,12 @@
 export class Item{
-    id?:string;
+    id:string;
     parentId:string;
     name:string;
     folder: boolean;
-    creation: string;
-    modification: string;
+    creation: Date;
+    modification: Date;
+    constructor(){
+        this.name="";
+    }
 
 }
