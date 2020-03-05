@@ -9,15 +9,15 @@ import { ModalFolderNameComponent } from './components/modal-folder-name/modal-f
 	styleUrls: ['./app.component.scss'],
 })
 export class AppComponent  {
-	uploadedFiles: File[]=[];
-	refresh=true;
+	uploadedFiles: File[] = [];
+	refresh = true;
 	constructor(private itemService: ItemService, private modalService: NgbModal) {
 
 	}
 
 	fileChange(element: any) {
-		console.log("fileChange");
-		
+		console.log('fileChange');
+
 		this.uploadedFiles = element.target.files;
 		this.upload();
 	  }
@@ -25,7 +25,7 @@ export class AppComponent  {
 	  isFileImage(file: any) {
 		return file && file.type.split('/')[0] === 'image';
 	  }
-	
+
 	  upload() {
 		  this.refresh = false;
 		const formData = new FormData();
@@ -33,13 +33,13 @@ export class AppComponent  {
 		  formData.append('uploads[]', this.uploadedFiles[i], this.uploadedFiles[i].name);
 		}
 
-		this.itemService.create(formData).subscribe((response:any) => {
+		this.itemService.create(formData).subscribe((response: any) => {
 		  console.log(response);
 			this.refresh = true;
 
-	
+
 		});
-		 
+
 	  }
 
 	openModal() {
@@ -51,12 +51,11 @@ export class AppComponent  {
 				// backdrop: 'static'
 			});
 
-
 		modalRef.result.then((result) => {
 			console.log(result);
 		}, (reason) => {
 			console.log(reason);
-			
+
 		});
 	}
 }

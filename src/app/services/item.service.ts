@@ -25,8 +25,8 @@ export class ItemService {
 
 		return this.http.get(this.path + 'items/' + itemID, { responseType: 'blob' });
 	}
-	getChildren(parentId:string){
-		
+	getChildren(parentId: string) {
+
 		return this.http.get(this.path + 'items/?parentId=' + parentId);
 	}
 	getCurrentFolder() {
@@ -36,5 +36,5 @@ export class ItemService {
 		this.currentFolder = folder;
 	}
 
-	
+
 }

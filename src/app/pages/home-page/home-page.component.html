@@ -1,7 +1,7 @@
 <div class="container">
 
 	<div class="row">
-		<div class="col-2 mb-4" *ngFor="let item of items">
+		<div class="col-3 mb-4" *ngFor="let item of items">
 			<a (click)="downloadFile(item.id)" *ngIf="!item.folder">
 				<i class="fa fa-file-text-o" aria-hidden="true" *ngIf="!item.folder"></i>
 				{{item.name}}</a>

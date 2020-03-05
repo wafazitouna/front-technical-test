@@ -15,11 +15,11 @@ const appRoutes: Routes = [
 	{
 		path: '',
 		pathMatch: 'full',
-		component: HomePageComponent
+		component: HomePageComponent,
 	},
 	{ path: 'folder/:id', component: FolderDetailsComponent },
 
-	{ path: '**', component: PageNotFoundComponent }
+	{ path: '**', component: PageNotFoundComponent },
 ];
 @NgModule({
 	imports: [
@@ -32,10 +32,10 @@ const appRoutes: Routes = [
 		MatToolbarModule,
 		MatCardModule,
 		RouterModule.forRoot(
-			appRoutes
+			appRoutes,
 		),
 		NgbModule,
-		FormsModule
+		FormsModule,
 	],
 	declarations: [
 		AppComponent,
@@ -43,7 +43,7 @@ const appRoutes: Routes = [
 		PageNotFoundComponent,
 		HomePageComponent,
 		HomePageComponent,
-		ModalFolderNameComponent
+		ModalFolderNameComponent,
 	],
 	entryComponents: [ModalFolderNameComponent],
 	bootstrap: [AppComponent],
