@@ -14,13 +14,11 @@ export class FolderDetailsComponent implements OnInit  {
 	currentFolder: Item;
 	listItems: Item[] = [];
 	currentFolderID: string;
-	private routeSub: Subscription;
 
 	constructor(private itemService: ItemService, private route: ActivatedRoute) { }
 
 	ngOnInit() {
-		this.routeSub = this.route.params.subscribe((params) => {
-			console.log(params); // log the entire params object
+		 this.route.params.subscribe((params) => {
 			console.log(params.id); // log the value of id
 			this.currentFolderID = params.id;
 		  });

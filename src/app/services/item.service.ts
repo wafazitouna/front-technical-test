@@ -17,7 +17,13 @@ export class ItemService {
 		return this.http.get<Item[]>(this.path + 'items');
 	}
 
-	create(data: any) {
+	create(data: any,parentId:string) {
+		console.log(parentId,'++++');
+		if(parentId){
+			console.log(parentId);
+			
+			return this.http.post<any>(this.path + 'items?parentId' + parentId, data);
+		}
 		return this.http.post<any>(this.path + 'items', data);
 	}
 
