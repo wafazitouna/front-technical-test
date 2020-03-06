@@ -22,8 +22,10 @@ export class ItemService {
 		if(parentId){
 			console.log(parentId);
 			
-			return this.http.post<any>(this.path + 'items?parentId' + parentId, data);
+			return this.http.post<any>(this.path + 'items?parentId=' + parentId, data);
 		}
+		console.log('**************');
+		
 		return this.http.post<any>(this.path + 'items', data);
 	}
 

@@ -1,8 +1,8 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ItemService } from '../../services/item.service';
-import { Item } from '../../models/item';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Item } from '../../models/item';
+import { ItemService } from '../../services/item.service';
+
 
 @Component({
 	selector: 'fl-folder-details',

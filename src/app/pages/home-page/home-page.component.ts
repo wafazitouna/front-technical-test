@@ -20,7 +20,7 @@ export class HomePageComponent implements OnInit {
     // Add 'implements OnInit' to the class.
 	this.itemService.getAll().subscribe((res: any) => {
 		this.items = res.items.filter((item :Item)=> !("parentId" in item));
-	console.log(this.items);
+		console.log(this.items,this.items);
 
 });
 }

@@ -24,9 +24,10 @@ export class ModalFolderNameComponent implements OnInit {
 
     // Called after the constructor, initializing input properties, and the first call to ngOnChanges.
 	// Add 'implements OnInit' to the class.
-		console.log(this.currentFolderID);
 		
-	//	this.currentFolder = this.itemService.getCurrentFolder();
+		
+		this.currentFolder = this.itemService.getCurrentFolder();
+		console.log(this.currentFolder );
 
 	}
 	open() {
@@ -41,13 +42,17 @@ export class ModalFolderNameComponent implements OnInit {
 	save() {
 
 		this.newFolder.folder = true;
-	
+		if (this.currentFolder){
+			this.newFolder.parentId = this.currentFolder.id;
+			console.log(this.newFolder.parentId);
+			
+		}
 		console.log(this.newFolder);
 
-		this.itemService.create(this.newFolder,this.currentFolderID).subscribe((res) => {
+		this.itemService.create(this.newFolder, this.currentFolder.id).subscribe((res) => {
 			console.log(res);
-			//this.modal.close();
-			//window.location.reload();
+			this.modal.close();
+			window.location.reload();
 		});
 	}
 
